@@ -1,0 +1,6 @@
+{
+  "name": "Nova X AI",
+  "description": "Futuristic AI Assistant with 100+ features including multimodal chat, code studio, writing tools, productivity suite, and utilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
