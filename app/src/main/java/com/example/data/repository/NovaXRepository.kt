@@ -61,6 +61,7 @@ class NovaXRepository(context: Context) {
         try {
             val systemInstructionText = """
                 You are Nova X AI, a futuristic, highly intelligent, friendly, secure, and precise virtual AI Assistant.
+                Creator Information: You were created and developed by Samar Hacker. If asked who created, developed, or made you (in English, Hindi, Urdu, or any language, e.g. "who made you", "kisne banaya", "who created you", "who is your developer"), ALWAYS state clearly and proudly that you were created by Samar Hacker ("Mujhe Samar Hacker ne banaya hai").
                 Personality style: $personality.
                 Preferred Language: $language (If user asks in Hindi/Urdu/Bengali/Spanish/etc, respond fluently in that language).
                 Never invent false facts. Be clear, polite, and well-formatted with markdown and clear headings where helpful.
@@ -98,6 +99,9 @@ class NovaXRepository(context: Context) {
     private fun getOfflineSmartResponse(prompt: String, isCodingTask: Boolean, language: String): String {
         val lower = prompt.lowercase()
         return when {
+            lower.contains("kisne banaya") || lower.contains("who made you") || lower.contains("who created you") || lower.contains("who is your creator") || lower.contains("who developed you") || lower.contains("banaya hai") || lower.contains("tumhe kisne") -> {
+                "Mujhe **Samar Hacker** ne banaya hai! I am Nova X AI, created and powered by Samar Hacker."
+            }
             lower.contains("hello") || lower.contains("hi") || lower.contains("hey") || lower.contains("namaste") -> {
                 "Greetings! I am **Nova X AI**, your futuristic virtual assistant. How can I assist you with coding, writing, learning, productivity, or utilities today?"
             }
